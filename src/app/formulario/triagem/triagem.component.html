@@ -1,0 +1,191 @@
+<p>
+<p>
+
+<h3 class="text-center">Fale mais sobre você e o que esta sentindo.</h3>
+
+<form class="form mt-4" [formGroup]="novaTriagemForm">
+   
+  <div class="container h-100">
+
+    <div class="row">
+
+      <div class="col-md-4 col-xs-4">
+        <div class="form-group">
+          <label > Na família existe algum histórico de infarto?</label>
+            <select class="form-control" data-size="5" data-live-search="true" data-width="100%" formControlName="heartAttack" name="heartAttack" required>
+                <option value='true'>Sim</option>
+                <option  value='false' selected>Não</option>
+            </select>
+          </div>
+      </div>
+      <div class="col-md-4 col-xs-4">
+        <div class="form-group">
+            <label for="volumeBolsa">Se sim, qual parentesco?</label>
+            <input type="text" class="form-control" id="heartAttackKinship" formControlName="heartAttackKinship" placeholder="Ex.: Pai/Mãe">
+        </div>
+      </div>
+
+    </div>
+
+    <p>
+
+    <div class="row">
+
+      <div class="col-md-4 col-xs-4">
+        <div class="form-group">
+           <label for="unidadeVolume">O paciente é obeso?</label>
+            <select class="form-control" data-size="5" data-live-search="true" data-width="100%" formControlName="obese" name="obese" required>
+              <option value='true'>Sim</option>
+              <option  value='false'>Não</option>
+            </select>
+          </div>
+      </div>
+
+      <div class="col-md-4 col-xs-4">
+        <div class="form-group">
+           <label for="unidadeVolume">O paciente faz uso de alguma medicação?</label>
+            <select class="form-control" data-size="5" data-live-search="true" data-width="100%" formControlName="medication" name="medication" required>
+              <option value='true'>Sim</option>
+              <option  value='false'>Não</option>
+            </select>
+          </div>
+      </div>
+      <div class="col-md-4 col-xs-4">
+        <div class="form-group">
+            <label for="volumeBolsa">Se sim, qual?</label>
+            <input type="text" class="form-control" id="cpf" placeholder="Opcional" formControlName="medicationWhich" name="medicationWhich">
+        </div>
+      </div>
+
+      <p>
+
+      <div class="col-md-4 col-xs-4">
+        <div class="form-group">
+           <label for="unidadeVolume">Possui alergia a alguma medicação?</label>
+            <select class="form-control" data-size="5" data-live-search="true" data-width="100%" formControlName="allergy" name="allergy" required>
+              <option value='true'>Sim</option>
+              <option  value='false'>Não</option>
+            </select>
+          </div>
+      </div>
+
+      <div class="col-md-4 col-xs-4">
+        <div class="form-group">
+            <label for="volumeBolsa">Se sim, qual?</label>
+            <input type="text" class="form-control" id="cpf" placeholder="Opcional" formControlName="drugAllergy" name="drugAllergy">
+        </div>
+      </div>
+
+      <p>
+
+        <div class="col-md-4 col-xs-4">
+          <div class="form-group">
+             <label for="unidadeVolume">Está sentindo dor?</label>
+              <select class="form-control" data-size="5" data-live-search="true" data-width="100%" formControlName="pain" name="pain" required>
+                <option value='true'>Sim</option>
+                <option  value='false'>Não</option>
+              </select>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-xs-4">
+          <div class="form-group">
+              <label for="volumeBolsa">Classifique a dor num grau de 1 a 10</label>
+              <select class="form-control" data-size="5" data-live-search="true" data-width="100%" formControlName="painLevel" name="painLevel" required>
+                <option selected default>0</option>
+                <option >1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+          </div>
+        </div> 
+  
+        <div class="col-md-4 col-xs-4">
+          <div class="form-group">
+              <label for="volumeBolsa">Qual é o local da dor?</label>
+              <select class="form-control" data-size="5" data-live-search="true" data-width="100%" formControlName="painSite" name="painSite" required>
+                <option selected default>Escolha uma das opções</option>
+                <option value="Retroesternal">Retroesternal</option>
+                <option value="Ombro_esquerdo">Ombro esquerdo</option>
+                <option value="Pescoco">Pescoço</option>
+                <option value="Face_ou_dentes">Face, dentes</option>
+                <option value="Regiao_interescapular">Regiao interescapular</option>
+                <option value="Epigastrica">Epigastrica</option>
+                <option value="Outro">Outro</option>
+            </select>
+          </div>
+        </div> 
+
+        <p></p>
+
+        <div class="col-md-4 col-xs-4">
+          <div class="form-group">
+              <label for="volumeBolsa">Qual é o carater da dor?</label>
+              <select class="form-control" data-size="5" data-live-search="true" data-width="100%" formControlName="painCauses" name="painCauses" required>
+                <option selected default>Escolha uma das opções</option>
+                <option value="Facada">Facada</option>
+                <option value="Agulhada">Agulhada</option>
+                <option value="Pontada">Pontada</option>
+                <option value="Piora_ao_respirar" >Piora ao respirar</option>
+                <option value="Aguda">Aguda</option>
+                <option value="Compressão">Compressão</option>
+                <option value="Queimação">Queimação</option>
+                <option value="Outro">Outro</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-4">
+          <div class="form-group">
+              <label for="volumeBolsa">Há quanto tempo ocorre os sintomas?</label>
+              <select class="form-control" data-size="5" data-live-search="true" data-width="100%" formControlName="painFrequency" name="painFrequency" required>
+                <option selected default>Escolha uma das opções</option>
+                <option value="Frequentemente">Primeira vez </option>
+                <option value="Primeira_vez">Frequentemente</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-4">
+          <div class="form-group">
+              <label for="volumeBolsa">Realizou algumas das atividades abaixo?</label>
+              <select class="form-control" data-size="5" data-live-search="true" data-width="100%" formControlName="painActivities" name="painActivities" required>
+                <option selected default>Escolha uma das opções</option>
+                <option value="Exercicio">Exercicio</option>
+                <option value="Estresse">Estresse</option>
+                <option value="Refeicao_copiosa">Refeição copiosa</option>
+                <option value="Outro">Outro</option>
+            </select>
+          </div>
+        </div>
+
+        <p></p>
+
+        <div class="col-md-4 col-xs-4">
+          <div class="form-group">
+              <label for="volumeBolsa">A dor esta persistindo por mais de 5 minutos?</label>
+              <select class="form-control" data-size="5" data-live-search="true" data-width="100%" formControlName="painDuration" name="painDuration" required>
+                <option value='true'>Sim</option>
+                <option  value='false'>Não</option>
+                <option  value='Outro'>Outro</option>
+
+            </select>
+          </div>
+        </div>
+
+    </div>
+
+    <p></p>
+      
+        <button type="button" class="btn btn-primary btn-lg btn-block" (click)="enviarTriagem()" [disabled]="!novaTriagemForm.valid" >Enviar formulário</button>
+
+ </div>    
+
+</form>
