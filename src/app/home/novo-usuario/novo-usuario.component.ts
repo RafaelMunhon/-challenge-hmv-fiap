@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ValidateCPF } from './cpf.validador';
 import { minusculoValidator } from './minusculo.validator';
 import { NovoUsuario } from './novo-usuario';
 import { NovoUsuarioService } from './novo-usuario.service';
 import { UsuarioExisteService } from './usuario-existe.service';
 import { usuarioSenhaIguaisValidator } from './usuario-senha-iguais.validator';
+
 
 @Component({
   selector: 'app-novo-usuario',
@@ -15,6 +17,7 @@ import { usuarioSenhaIguaisValidator } from './usuario-senha-iguais.validator';
 export class NovoUsuarioComponent implements OnInit {
   novoUsuarioForm!: FormGroup;
   novaTriagemForm: any;
+  mask:string | undefined;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,7 +32,7 @@ export class NovoUsuarioComponent implements OnInit {
       {
         email: ['', [Validators.required, Validators.email]],
         fullName: ['', [Validators.required, Validators.minLength(4)]],
-        userName: ['',[minusculoValidator],], // [this.usuarioExistenteServive.usuarioJaExite()],],
+        userName: ['',[ValidateCPF],], // [this.usuarioExistenteServive.usuarioJaExite()],],
         password: ['', [Validators.required, Validators.minLength(4)],],
       },
       {
@@ -37,6 +40,19 @@ export class NovoUsuarioComponent implements OnInit {
       },
     );
   }  
+
+  
+
+  cpfcnpjmask() {
+    const value = this.novoUsuarioForm.get('userName')?.value;
+    console.log(value, value.length,this.novoUsuarioForm)
+    if(value.length <= 14) {
+      this.mask = '00.000.000/0000-00'
+    }
+    else {
+      this.mask = '00.000.0000-00'
+    }
+  }
 
   base64(): string {
     return btoa(this.novoUsuarioForm.get('password')?.value);
@@ -59,7 +75,7 @@ export class NovoUsuarioComponent implements OnInit {
       this.novoUsuarioService.cadastraNovoUsuario(novoUsuario).subscribe({
         next: data => {
           if (data.status == true) {
-            alert("Cadastro realizado com sucesso");
+            alert("Seu cadastro está quase pronto. Para ativá-lo, foi enviado um link de confirmação em seu e-mail.");
             this.router.navigate(['']);
           } else {
             alert("Erro ao realizar o cadastro, favor entrar em contato com o administrador");

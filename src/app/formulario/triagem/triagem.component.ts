@@ -68,6 +68,7 @@ export class TriagemComponent implements OnInit {
         
         //alert( data.urgencyRank);
         alert(this.getPrioridade());
+        this.novaTriagemForm.reset();
       
     },
     error: error => {

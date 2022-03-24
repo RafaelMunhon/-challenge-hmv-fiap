@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AutenticacaoService } from 'src/app/autenticacao/autenticacao.service';
 import { sha256 } from 'js-sha256'
+import { ValidateCPF } from '../novo-usuario/cpf.validador';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { sha256 } from 'js-sha256'
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  usuario = '';
+  usuario:any = '';
   senha = '';
 
   constructor(
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }  
 
   login() {
     

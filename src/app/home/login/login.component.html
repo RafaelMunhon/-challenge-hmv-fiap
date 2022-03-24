@@ -4,15 +4,20 @@
   <div class="form-group">
     <input
       class="form-control"
-      placeholder="CPF"
+
+      type="text"
+      class="form-control"
       [(ngModel)]="usuario"
       name="usuario"
+      placeholder="CPF"
+      maxlength="14"
+      autocomplete="off"
       #campoUsuario="ngModel"
       required
     />
     <app-mensagem
       *ngIf="campoUsuario.invalid && campoUsuario.touched"
-      mensagem="Usuário obrigatório"
+      mensagem="Cpf obrigatório"
     ></app-mensagem>
   </div>
 

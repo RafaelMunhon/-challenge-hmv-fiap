@@ -1,7 +1,7 @@
 <h4 class="text-center">Registre-se!</h4>
 
 <form class="form mt-4" [formGroup]="novoUsuarioForm" (submit)="cadastrar()">
-  <div class="form-group">
+  <div class="form-group" >
     <input placeholder="e-mail" class="form-control" formControlName="email" />
     <app-mensagem
       *ngIf="
@@ -35,18 +35,22 @@
     >
     </app-mensagem>
   </div>
-  <div class="form-group">
-    <input
+  <div class="form-group" >
+     
+    <input 
+      type="text"
       placeholder="CPF"
+      maxlength="14"
+      autocomplete="off"
       class="form-control"
       formControlName="userName"
     />
     <app-mensagem
       *ngIf="
-        novoUsuarioForm.get('userName')?.errors?.minusculo &&
+      novoUsuarioForm.get('userName')?.errors &&
         novoUsuarioForm.get('userName')?.touched
       "
-      mensagem="Usuário deve ser em letra minúscula"
+      mensagem="Favor insira um CPF valido"
     >
     </app-mensagem>
     <app-mensagem
