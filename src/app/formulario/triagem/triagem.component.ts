@@ -66,8 +66,8 @@ export class TriagemComponent implements OnInit {
     this.novaTriagemService.cadastraTriagem(novaTriagem,this.user.token).subscribe({
     next: data => {
         
-        alert( data.urgencyRank);
-        //alert("Sucesso");
+        //alert( data.urgencyRank);
+        alert(this.getPrioridade());
       
     },
     error: error => {
@@ -94,5 +94,18 @@ export class TriagemComponent implements OnInit {
 
     getDadosUsuario(){
       this.novaTriagemForm.controls['userId'].setValue(this.user.id);
+    }
+
+    getPrioridade(){
+      
+      let prioridade = this.novaTriagemForm.controls['painLevel'].value;
+
+      if (prioridade < 4) {
+        return "Pouco Urgente";
+      } else if ((prioridade > 3) && (prioridade < 7)){
+        return "Atendimento prioritario";
+      } else {
+        return "Urgente"; 
+      }
     }
 }
