@@ -101,12 +101,14 @@ export class TriagemComponent implements OnInit {
       
       let prioridade = this.novaTriagemForm.controls['painLevel'].value;
 
-      if (prioridade < 4) {
+      if (prioridade < 5) {
         return "Pouco Urgente";
-      } else if ((prioridade > 3) && (prioridade < 7)){
-        return "Atendimento prioritario";
+      } else if ((prioridade > 5) && (prioridade < 6)){
+        return "Urgente";
+      } else if ((prioridade > 7) && (prioridade < 8)){
+        return "Muito Urgente";
       } else {
-        return "Urgente"; 
+        return "Emergente"; 
       }
     }
 }
