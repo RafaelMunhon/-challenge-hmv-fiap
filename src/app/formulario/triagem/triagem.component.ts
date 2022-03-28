@@ -68,7 +68,8 @@ export class TriagemComponent implements OnInit {
         
         //alert( data.urgencyRank);
         alert(this.getPrioridade());
-        this.novaTriagemForm.reset();
+        this.clearForm();
+        
       
     },
     error: error => {
@@ -110,5 +111,13 @@ export class TriagemComponent implements OnInit {
       } else {
         return "Emergência"; 
       }
+    }
+
+    clearForm(){
+
+      this.novaTriagemForm.reset();
+      this.novaTriagemForm.controls['heartAttackKinship'].setValue("");
+      this.novaTriagemForm.controls['drugAllergy'].setValue("");
+      this.novaTriagemForm.controls['medicationWhich'].setValue("");
     }
 }
