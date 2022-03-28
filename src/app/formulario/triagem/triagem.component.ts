@@ -108,7 +108,7 @@ export class TriagemComponent implements OnInit {
       } else if ((prioridade > 7) && (prioridade < 8)){
         return "Muito Urgente";
       } else {
-        return "Emergente"; 
+        return "Emergência"; 
       }
     }
 }
