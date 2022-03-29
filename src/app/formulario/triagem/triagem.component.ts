@@ -37,6 +37,8 @@ export class TriagemComponent implements OnInit {
     
   },);
 
+  data: any;
+
   constructor(
     private formBuilder: FormBuilder,
     private novaTriagemService: TriagemService,
@@ -65,9 +67,11 @@ export class TriagemComponent implements OnInit {
    
     this.novaTriagemService.cadastraTriagem(novaTriagem,this.user.token).subscribe({
     next: data => {
+
+        const body = JSON.parse(JSON.stringify(data))
         
-        //alert( data.urgencyRank);
-        alert(this.getPrioridade());
+        alert(this.replaceString(body.urgencyRank));
+        //alert(this.getPrioridade());
         this.clearForm();
         
       
@@ -111,6 +115,10 @@ export class TriagemComponent implements OnInit {
       } else {
         return "Emergência"; 
       }
+    }
+
+    replaceString(priority:string){
+      return priority.replace("_"," ");
     }
 
     clearForm(){
